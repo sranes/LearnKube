@@ -15,9 +15,9 @@ As part of this exercise, we are going to run KeyCloak in a docker container and
     `minikube start`
 2. Once Minikube is running, you can proceed to install Argo CD
 ```
-   kubectl create namespace argocd
-   kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-   kubectl port-forward svc/argocd-server -n argocd 8080:443
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 Now you should be able to access Argo CD using https://localhost:8080
 
@@ -40,12 +40,12 @@ Now you should be able to access Argo CD using https://localhost:8080
 **Configure the Groups Claim**
 1. Create a new Client Scope called 'groups'
    1. Make sure 'Protocol' is set to 'openid-connect'
-2. Navigate to Mapper after creating the Client Scope
-3. Create a new mapper with
+1. Navigate to Mapper after creating the Client Scope
+1. Create a new mapper with
    1. Name as 'groups'
-   2. Member Type as 'Group Membership'
-   3. Token Claim Name as 'groups'
-4. Navigate to the 'Client Scopes' for the 'argocd' client
+   1. Member Type as 'Group Membership'
+   1. Token Claim Name as 'groups'
+1. Navigate to the 'Client Scopes' for the 'argocd' client
    1. In the 'Default Client Scopes' Add 'groups' and click on 'Add Selected'
 
 **Configure Groups**
@@ -53,8 +53,8 @@ Now you should be able to access Argo CD using https://localhost:8080
 
 **Configure User**
 1. Create a new user called test
-2. Assign the user to "ArgoCDAdmins" group
-3. Set the credentials
+1. Assign the user to "ArgoCDAdmins" group
+1. Set the credentials
 
 ## Configure Argo CD OIDC
 **Encode the Client Secret**
